@@ -1,0 +1,15 @@
+services:
+  ai-research-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: ai-research-agent
+
+    ports:
+      - "8502:8501"
+
+    env_file:
+      - .env
+
+    restart: unless-stopped

@@ -1,0 +1,43 @@
+# Environment variables and secrets
+
+.env
+.env.*
+!.env.example
+
+# Python
+
+**pycache**/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Jupyter Notebook
+
+.ipynb_checkpoints/
+
+# IDE
+
+.vscode/
+.idea/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Logs
+
+*.log
+
+# Generated files
+
+*.pdf
+*.tmp
+
+# Test and coverage
+
+.pytest_cache/
+.coverage
+htmlcov/
