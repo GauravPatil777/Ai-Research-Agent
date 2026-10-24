@@ -14,7 +14,6 @@ test:
 name: Test and Build
 runs-on: ubuntu-latest
 
-
 steps:
   - name: Checkout Repository
     uses: actions/checkout@v4
@@ -77,6 +76,12 @@ steps:
   - name: Trigger Render Deployment
     env:
       RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
     run: |
+      IMAGE_URL="docker.io/${DOCKERHUB_USERNAME}/ai-research-agent:${GITHUB_SHA}"
+
       curl --fail --silent --show-error \
-        --request POST "$RENDER_DEPLOY_HOOK"
+        --get \
+        --data-urlencode "imgURL=$IMAGE_URL" \
+        "$RENDER_DEPLOY_HOOK"
+
